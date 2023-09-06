@@ -33,7 +33,6 @@ if __name__ == '__main__':
             price=random.randint(5, 60)
         )
 
-        # add and commit individually to get IDs back
         session.add(game)
         session.commit()
 
@@ -41,8 +40,7 @@ if __name__ == '__main__':
 
     reviews = []
     for game in games:
-        for i in range(random.randint(1,5)):
-            
+        for i in range(random.randint(1, 5)):
             review = Review(
                 score=random.randint(0, 10),
                 comment=fake.sentence(),

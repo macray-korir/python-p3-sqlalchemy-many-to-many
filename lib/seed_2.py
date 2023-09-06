@@ -34,12 +34,10 @@ if __name__ == '__main__':
             price=random.randint(5, 60)
         )
 
-        # add and commit individually to get IDs back
         session.add(game)
         session.commit()
 
         games.append(game)
-
 
     users = []
     for i in range(25):
@@ -52,10 +50,9 @@ if __name__ == '__main__':
 
         users.append(user)
 
-
     reviews = []
     for game in games:
-        for i in range(random.randint(1,5)):
+        for i in range(random.randint(1, 5)):
             user = random.choice(users)
             if game not in user.games:
                 user.games.append(game)

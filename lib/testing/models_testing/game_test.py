@@ -1,8 +1,18 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from conftest import SQLITE_URL
-from models import User, Game, Review
+from models import User, Game, Review, SQLITE_URL, Base
+
+
+# Setup function
+def setup_module():
+    engine = create_engine(SQLITE_URL)
+    Base.metadata.create_all(engine)
+
+# Teardown function
+def teardown_module():
+    engine = create_engine(SQLITE_URL)
+    Base.metadata.drop_all(engine)
 
 class TestGame:
     '''Game in models.py'''
